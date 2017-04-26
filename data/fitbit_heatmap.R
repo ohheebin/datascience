@@ -23,11 +23,11 @@ heatmap <- ggplot(data, aes(x = as.character(weekday), y = week)) + geom_tile(ae
 heatmap
 
 #heatmap 만드는 코드 한줄 넘길때 뒤에다 +를 써야 에러가 없다
-heatmap <- ggplot(data2, aes(x = HM, y = as.character(weekday))) + geom_tile(aes(fill = steps)) + 
+heatmap <- ggplot(data2, aes(x = as.numeric(as.character(HM)), y = as.character(weekday))) + geom_tile(aes(fill = steps)) + 
   scale_fill_gradient(name = 'heatmap', low = 'white', high = 'pink') +
   scale_y_discrete(breaks = c("0", "1", "2", "3", "4", "5", "6"),
                    labels = c("mon","tue","wed","thu","fri","sat","sun"), position="left") +
-  theme(axis.title.x = element_blank(), axis.title.y = element_blank())
+  xlab('15 minute') + ylab(NULL)
 
 heatmap
 
